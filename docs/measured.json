@@ -1,0 +1,91 @@
+{
+  "dataset": "offline-demo-v1",
+  "go": "go1.22.2",
+  "agent": "scripted-fake-agent",
+  "bait_pattern": "bait",
+  "bait_domains": [
+    "git.example-vendor.test",
+    "uploads.example-vendor.test"
+  ],
+  "bait_absent_in": "1.0.0",
+  "invisible_hosts": [
+    "pinned.example-vendor.test"
+  ],
+  "invisible_reason": "cert_pin_or_tls_reject",
+  "tiny_file": "src/tiny.txt",
+  "tiny_file_reported_as_full_file": false,
+  "versions": [
+    {
+      "version": "1.0.0",
+      "flows": 2,
+      "body_bytes": 154,
+      "request_bytes": 466,
+      "secrets": 0,
+      "full_files": 0,
+      "git_objects": 0,
+      "invisible_hosts": 0,
+      "category_body_bytes": {
+        "api": 0,
+        "git": 0,
+        "inference": 94,
+        "other": 0,
+        "telemetry": 60,
+        "upload": 0
+      },
+      "domains": [
+        "api.example-agent.test",
+        "telemetry.example-agent.test"
+      ]
+    },
+    {
+      "version": "1.1.0",
+      "flows": 4,
+      "body_bytes": 1750,
+      "request_bytes": 2429,
+      "secrets": 2,
+      "full_files": 5,
+      "git_objects": 7,
+      "invisible_hosts": 1,
+      "category_body_bytes": {
+        "api": 0,
+        "git": 866,
+        "inference": 148,
+        "other": 0,
+        "telemetry": 70,
+        "upload": 666
+      },
+      "domains": [
+        "api.example-agent.test",
+        "git.example-vendor.test",
+        "telemetry.example-agent.test",
+        "uploads.example-vendor.test"
+      ]
+    }
+  ],
+  "diff_domains_added": [
+    "git.example-vendor.test",
+    "uploads.example-vendor.test"
+  ],
+  "corpus": {
+    "dataset": "ledger-fixture-v1",
+    "secret_cases": 20,
+    "secret_exact": 20,
+    "secret_tp": 11,
+    "secret_fp": 0,
+    "secret_fn": 0,
+    "secret_precision": 1,
+    "secret_recall": 1,
+    "git_cases": 6,
+    "git_exact": 6,
+    "git_accuracy": 1,
+    "file_cases": 5,
+    "file_exact": 5,
+    "file_accuracy": 1
+  },
+  "notes": [
+    "offline-demo-v1 is a scripted fake agent talking to local mock endpoints. It is not a capture of Claude Code, Codex, or any other real agent.",
+    "ledger-fixture-v1 is the labeled secret, git, and file corpus scored by the same classifiers.",
+    "Real coding-agent captures are WIP.",
+    "HTTP request bytes are reconstructed with header names sorted and exclude TLS framing. Category totals use exact body bytes."
+  ]
+}
